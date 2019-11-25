@@ -1,10 +1,10 @@
 /**
  * Salutation botkit message.
- * Reply a salutation message when hearing words 'hello', 'salut' or 'coucou'
+ * Reply a salutation message when hearing words 'bonjour', 'salut' or 'coucou'
  * @param controller
  */
 module.exports = (controller) => {
-  controller.hears(['hello', 'salut', 'coucou'], 'message,direct_message', async (bot, message) => {
-    await bot.reply(message, 'Hello :) ! what can I do for you ?')
+  controller.hears(['bonjour', 'salut', 'coucou'], 'message,direct_message', async (bot, message) => {
+    await bot.reply(message, 'Bonjour Wikiat ! Que puis-je faire pour vous ?')
   })
 }

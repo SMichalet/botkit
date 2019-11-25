@@ -26,12 +26,12 @@ module.exports = (controller) => {
       await convo.setVar('tickets', tickets)
     } catch (e) {
       console.error(e)
-      await bot.say('Sorry, an error occurred, thanks to try later')
+      await bot.say('Désolé je ne peux pas récupérer la liste des tickets pour le moment, merci de réessayer.')
     }
   })
   // -- list tickets
   listConvo.addMessage(
-    'Here is the current ticket list :' + os.EOL +
+    'Voici votre liste de tickets :' + os.EOL +
     '{{#vars.tickets}} ' +
     '* **{{title}}** - {{description}}' + os.EOL +
     '{{/vars.tickets}}',
