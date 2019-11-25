@@ -1,18 +1,22 @@
 const axios = require('axios')
+const config = require('config')
 
 /**
- * Ticket Service use to request ticket API to :
- * - create a ticket
- * - find all tickets
+ * Ticket Service use to request ticket API to manage ticket
  */
 class TicketService {
+
+  constructor () {
+    this.resourceUri = config.get('API.host') + ':' + config.get('API.port') + config.get('API.resources.tickets')
+  }
+
   /**
    * Create a ticket
    * @param ticket {title, description} ticket
    * @returns created ticket
    */
   async create (ticket) {
-    let response = await axios.post('http://localhost:5000/tickets', ticket)
+    let response = await axios.post(this.resourceUri, ticket)
     return response.data
   }
 
@@ -21,7 +25,7 @@ class TicketService {
    * @returns tickets
    */
   async findAll () {
-    let response = await axios.get('http://localhost:5000/tickets')
+    let response = await axios.get(this.resourceUri)
     return response.data
   }
 }

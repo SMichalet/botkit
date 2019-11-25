@@ -1,0 +1,11 @@
+{
+  "API": {
+
+    "host": "http://localhost",
+    "port": 5000,
+
+    "resources" : {
+      "tickets" : "/tickets"
+    }
+  }
+}

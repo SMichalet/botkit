@@ -19,7 +19,7 @@ module.exports = (controller) => {
   let listConvo = new BotkitConversation(TICKET_DISPLAY, controller)
 
   //STEP : list tickets message
-  // -- get ticket from API before listing ticket
+  // -- get ticket from API before
   listConvo.before('tickets', async (convo, bot) => {
     try {
       let tickets = await ticketService.findAll()
