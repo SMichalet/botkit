@@ -39,6 +39,14 @@ You will need the Bot Framework Emulator to be able to interact with it.
 2. Install it and copy the bot URL `http://localhost:3000/api/messages`
 3. Start to discuss with the bot
 
+### NodeJS & NPM
+
+Npm and node should be install to run the application.
+* npm version >= 6.12.0
+* node version >= v12.13.0
+
+To install node follow the installation guide https://nodejs.org/en/download/
+
 ## General Information
 
 This bot is trigger by the following keywords : 
