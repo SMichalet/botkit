@@ -26,8 +26,9 @@ module.exports = (controller) => {
       let tickets = await ticketService.findAll()
       await convo.setVar('tickets', tickets)
     } catch (e) {
-      console.error(e)
+      console.error('error when trying to retrieve tickets', e.errno)
       await bot.say('Désolé je ne peux pas récupérer la liste des tickets pour le moment, merci de réessayer.')
+      await convo.stop()
     }
   })
   // -- list tickets

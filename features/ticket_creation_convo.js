@@ -30,7 +30,7 @@ module.exports = (controller) => {
 
   //STEP: ask for confirmation - create ticket if spell 'yes'
   creationConvo.ask('Confirmez-vous la création du ticket **{{vars.title}}** ?', [{
-      pattern: new RegExp('yes|oui|y|confirmé|confirm|o'),
+      pattern: new RegExp('yes|oui|confirmé|confirm'),
       handler: async (response, convo, bot) => {
         try {
           await ticketService.create({
@@ -39,12 +39,13 @@ module.exports = (controller) => {
           })
           await bot.say('Le ticket a bien été créé.')
         } catch (e) {
-          console.error(e)
-          await bot.say('Sorry, an error occurred, thanks to try later')
+          console.error('error when trying to create a ticket', e.errno)
+          await bot.say('Désolé je ne peux pas créer de ticket pour le moment, merci de réessayer.')
+          await convo.stop()
         }
       }
     }, {
-      pattern: new RegExp('no|non|n|annulé|cancel'),
+      pattern: new RegExp('no|non|annulé|cancel'),
       handler: async (response, convo, bot) => {
         await bot.say('Le ticket n\'a pas été créé.')
       }
