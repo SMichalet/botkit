@@ -45,3 +45,28 @@ This bot is trigger by the following keywords :
 * **bonjour**, **salut**, **coucou** : trigger salutation message
 * **création**, **créer** : trigger creation conversation
 * **tickets**, **voir** : trigger listing ticket message
+
+this keywords can be changed by modifying the `config/default.json` configuration file.
+
+default configuration :
+```
+"bot": {
+    "keywords": {
+      "salutation": [
+        "bonjour",
+        "salut",
+        "coucou"
+      ],
+      "tickets": {
+        "create": [
+          "création",
+          "créer"
+        ],
+        "listing": [
+          "tickets",
+          "voir"
+        ]
+      }
+    }
+}
+```

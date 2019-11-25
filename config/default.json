@@ -1,11 +1,28 @@
 {
   "API": {
-
     "host": "http://localhost",
     "port": 5000,
-
-    "resources" : {
-      "tickets" : "/tickets"
+    "resources": {
+      "tickets": "/tickets"
+    }
+  },
+  "bot": {
+    "keywords": {
+      "salutation": [
+        "bonjour",
+        "salut",
+        "coucou"
+      ],
+      "tickets": {
+        "create": [
+          "création",
+          "créer"
+        ],
+        "listing": [
+          "tickets",
+          "voir"
+        ]
+      }
     }
   }
 }

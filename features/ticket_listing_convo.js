@@ -1,6 +1,7 @@
 const { BotkitConversation } = require('botkit')
-const os = require('os')
+const config = require('config')
 const ticketService = require('../services/TicketService')
+const os = require('os')
 
 /**
  * Listing ticket botkit conversation.
@@ -12,7 +13,7 @@ module.exports = (controller) => {
 
   const TICKET_DISPLAY = 'ticket-display-dialog'
 
-  controller.hears(['tickets', 'voir'], 'message,direct_message', async (bot, message) => {
+  controller.hears(config.get('bot.keywords.tickets.listing'), 'message,direct_message', async (bot, message) => {
     await bot.beginDialog(TICKET_DISPLAY)
   })
 

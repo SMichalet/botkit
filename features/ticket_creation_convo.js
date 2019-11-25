@@ -1,4 +1,5 @@
 const { BotkitConversation } = require('botkit')
+const config = require('config')
 const ticketService = require('../services/TicketService')
 
 /**
@@ -11,7 +12,7 @@ module.exports = (controller) => {
 
   const TICKET_CREATION = 'ticket-creation-dialog'
 
-  controller.hears(['création', 'créer'], 'message,direct_message', async (bot, message) => {
+  controller.hears(config.get('bot.keywords.tickets.create'), 'message,direct_message', async (bot, message) => {
     await bot.beginDialog(TICKET_CREATION)
   })
 
